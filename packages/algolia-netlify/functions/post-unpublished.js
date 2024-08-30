@@ -31,7 +31,8 @@ exports.handler = async (event) => {
         index: process.env.ALGOLIA_INDEX
     };
 
-    const {post} = JSON.parse(event.body);
+    const {post,page} = JSON.parse(event.body);
+    if (!post) post = page;
 
     // Updated posts are in `post.current`, deleted are in `post.previous`
     const {slug} = (post.current && Object.keys(post.current).length && post.current)
