@@ -31,7 +31,7 @@ exports.handler = async (event) => {
         index: process.env.ALGOLIA_INDEX
     };
 
-    const {post,page} = JSON.parse(event.body);
+    let {post,page} = JSON.parse(event.body);
     if (!post) post = page;
 
     // Updated posts are in `post.current`, deleted are in `post.previous`
