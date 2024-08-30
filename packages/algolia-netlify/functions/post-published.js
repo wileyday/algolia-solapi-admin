@@ -33,7 +33,7 @@ exports.handler = async (event) => {
     };
 
     let {post,page} = JSON.parse(event.body);
-    if (!post) post = page
+    if (!post) post = page;
     post = (post && Object.keys(post.current).length > 0 && post.current) || {};
 
     if (!post || Object.keys(post).length < 1) {
